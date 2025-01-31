@@ -25,7 +25,6 @@ export const products = pgTable('products', {
     image: text('image'),
     initial_stock : integer('initial_stock').notNull(),
     availabel_stock : integer('availabel_stock').notNull(),
-    categoryId : integer('category_Id').references(()=>categories.id).notNull()
-    
+    categoryId : integer('category_Id').references(()=>categories.id,{onDelete:'no action', onUpdate:'cascade'}).notNull()  
 })
 

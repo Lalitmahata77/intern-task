@@ -1,5 +1,6 @@
 import { db } from "@/lib/db/db";
 import { products } from "@/lib/db/schema";
+// import { categories, products } from "@/lib/db/schema";
 import { isServer, productSchema } from "@/lib/validators/productSchema";
 import { desc } from "drizzle-orm";
 import { unlink, writeFile } from "node:fs/promises";
@@ -21,6 +22,7 @@ export async function POST(request: Request) {
     } catch (error) {
         return Response.json({message : error}, {status : 400})
     }
+    
 
     const inputImage = isServer
     ? (validateData.image as File)
@@ -45,6 +47,7 @@ try {
     } catch (unlinkError) {
         console.error('Failed to delete image:', unlinkError);
     }
+console.log(error);
 
     
     return Response.json(
