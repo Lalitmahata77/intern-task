@@ -35,6 +35,8 @@ try {
     await writeFile(path.join(process.cwd(), 'public/assets', filename), buffer);
     
 } catch (error) {
+    console.log(error);
+    
     return Response.json({ message: 'Failed to save the file to fs' }, { status: 500 });
 }
 
@@ -63,6 +65,8 @@ export async function GET(){
         const allProducts = await db.select().from(products).orderBy(desc(products.id))
         return Response.json(allProducts)
     } catch (error) {
+        console.log(error);
+        
         return Response.json({message : "Failed to fetch products"}, {status:500})
     }
 }

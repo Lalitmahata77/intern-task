@@ -1,6 +1,6 @@
 import { db } from "@/lib/db/db"
 import { products } from "@/lib/db/schema"
-import { isServer, productSchema } from "@/lib/validators/productSchema"
+import { productSchema } from "@/lib/validators/productSchema"
 import { eq } from "drizzle-orm"
 import { mkdir, unlink, writeFile } from "node:fs/promises"
 import path from "node:path"
@@ -20,6 +20,8 @@ export async function GET(request:Request, {params} : {params :{id : string}}){
         return Response.json(product[0])
         
     } catch (error) {
+      console.log(error);
+      
         return Response.json({message : "Failed to fetch a product"},{status:500})
     }
 }
@@ -50,6 +52,8 @@ export async function DELETE(request:Request, {params} : {params : {id : string}
 
 
     } catch (error) {
+      console.log(error);
+      
         return Response.json({message : "Failed to delete a product"},{status:500})
 
     }

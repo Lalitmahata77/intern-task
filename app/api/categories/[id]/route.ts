@@ -20,6 +20,8 @@ export async function GET(request:Request, {params} : {params :{id : string}}){
         return Response.json(category[0])
         
     } catch (error) {
+        console.log(error);
+        
         return Response.json({message : "Failed to fetch a product"},{status:500})
     }
 }
@@ -89,7 +91,7 @@ export async function PUT(request:Request, {params} : {params : {id : string}}){
         const buffer = Buffer.from(await inputImage.arrayBuffer());
         await writeFile(path.join(uploadDir, newImageFilename), buffer);
   
-        oldImageFilename = existingCategory.image;
+        oldImageFilename = existingCategory.image ;
       }
       const updateData: Partial<{
         name: string;
