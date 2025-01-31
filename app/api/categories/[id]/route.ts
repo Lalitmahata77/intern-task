@@ -49,6 +49,8 @@ export async function DELETE(request:Request, {params} : {params : {id : string}
 
 
     } catch (error) {
+        console.log(error);
+        
         return Response.json({message : "Failed to delete a Category"},{status:500})
 
     }
