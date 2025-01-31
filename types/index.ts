@@ -7,3 +7,9 @@ export interface Product {
     availabel_stock : number;
     categoryId : number
 }
+
+export interface Category {
+    id : number;
+    name : string,
+    image : string
+}

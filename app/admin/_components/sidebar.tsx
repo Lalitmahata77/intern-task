@@ -12,7 +12,7 @@ const Sidebar = () => {
     const navItems = [
         { label: 'Dashboard', href: '/admin', icon: HomeIcon },
         { label: 'Products', href: '/admin/products', icon: Layers },
-        { label: 'Category', href: '/admin/Category', icon: CassetteTapeIcon },
+        { label: 'Category', href: '/admin/categories', icon: CassetteTapeIcon },
         
     ];
     return (

@@ -35,21 +35,21 @@ export async function DELETE(request:Request, {params} : {params : {id : string}
         if (!categoryResult.length) {
             return Response.json({message : "Product not found"},{status:400})
         }
-        const product = categoryResult[0];
+        const category = categoryResult[0];
 
         await db.delete(categories).where(eq(categories.id, Number(id)))
-        if (product.image) {
+        if (category.image) {
             const imagePath = path.join(
               process.cwd(),
               'public/assets',
-              product.image
+              category.image
             );
             await unlink(imagePath);
           }
 
 
     } catch (error) {
-        return Response.json({message : "Failed to delete a product"},{status:500})
+        return Response.json({message : "Failed to delete a Category"},{status:500})
 
     }
 }
